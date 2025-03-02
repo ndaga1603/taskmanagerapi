@@ -9,6 +9,28 @@ from rest_framework.response import Response
 
 
 class LogoutView(APIView):
+    """
+    Handles user logout by blacklisting the provided refresh token.
+
+    Methods:
+    -------
+    post(request):
+        Invalidates the provided refresh token by adding it to the blacklist.
+        Returns a success message if the token is blacklisted successfully,
+        otherwise returns an error message.
+
+    Parameters:
+    ----------
+    request : Request
+        The HTTP request object containing the refresh token in the request data.
+
+    Returns:
+    -------
+    Response
+        A Response object with a success message and status code 200 if the token
+        is blacklisted successfully, or an error message and status code 400 if
+        there is an issue with the provided token or any other exception occurs.
+    """
     def post(self, request):
         try:
             refresh_token = request.data.get("refresh")
@@ -27,6 +49,7 @@ class TaskListCreateView(generics.ListCreateAPIView):
     TaskListCreateView is a view that provides both list and create functionalities for Task objects.
 
     Attributes:
+    -----------
         queryset (QuerySet): The base queryset for retrieving Task objects.
         serializer_class (Serializer): The serializer class used for Task objects.
         filter_backends (list): A list of filter backends used for filtering, searching, and ordering.
@@ -35,6 +58,7 @@ class TaskListCreateView(generics.ListCreateAPIView):
         filterset_fields (list): A list of fields that can be used for filtering.
 
     Methods:
+    --------
         get_queryset(self):
             Returns a queryset of Task objects that belong to the authenticated user.
     """
@@ -60,9 +84,11 @@ class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
     This view ensures that only tasks owned by the authenticated user can be accessed or modified.
 
     Attributes:
+    -----------
         serializer_class (TaskSerializer): The serializer class used to validate and serialize the Task instances.
 
     Methods:
+    --------
         get_queryset(self):
             Returns a queryset of Task instances that are owned by the authenticated user.
     """

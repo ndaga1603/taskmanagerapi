@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import TaskListCreateView, TaskDetailView
+from .views import TaskListCreateView, TaskDetailView, LogoutView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path('task/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Get access + refresh tokens
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'), # Refresh access token
+    path('logout/', LogoutView.as_view(), name='auth_logout'),  # Blacklist refresh token
 ]

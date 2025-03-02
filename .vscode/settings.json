@@ -1,6 +1,10 @@
 {
     "cSpell.words": [
+        "createsuperuser",
+        "djangorestframework",
         "filterset",
+        "makemigrations",
+        "Ndaga",
         "simplejwt",
         "taskmanagerapi"
     ]

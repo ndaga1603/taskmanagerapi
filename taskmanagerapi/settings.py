@@ -25,16 +25,17 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_filters',  # Django filters
-    'rest_framework',  # Django REST framework
-    'rest_framework_simplejwt', # Simple JWT
-    'tasks',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django_filters",  # Django filters
+    "rest_framework",  # Django REST framework
+    "rest_framework_simplejwt",  # Simple JWT
+    "rest_framework_simplejwt.token_blacklist", # Simple JWT token blacklist
+    "tasks",
 ]
 
 MIDDLEWARE = [
